@@ -1,0 +1,20 @@
+.register-con {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+.register input,
+.register select {
+    width: 100%;
+    height: 24px;
+    margin-bottom: 10px;
+}
+
+.login-link a {
+    font-size: 12px;
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.BaseDictMapper">
+
+
+	<select id="findBycode" resultType="com.qianli.pojo.BaseDict"
+		parameterType="Integer">
+		select *
+		from base_dict
+		where dict_type_code=#{dict_type_code} and status= '1'
+
+	</select>
+
+
+
+	<select id="findByItem" resultType="com.qianli.pojo.BaseDict"
+		parameterType="String">
+		select *
+		from base_dict
+		where dict_item_name=#{v} and status= '1'
+
+	</select>
+
+
+	<select id="findByDict" resultType="com.qianli.pojo.BaseDict"
+		parameterType="com.qianli.pojo.BaseDict">
+		select *
+		from base_dict
+		<where>
+		     status='1'  
+		     <if test=" dict_type_code!= 0   ">
+				and dict_type_code = #{dict_type_code}
+			</if>
+		    
+			<if test=" dict_item_name !=null and   dict_type_name != ''    ">
+				and dict_type_name = #{dict_type_name}
+			</if>
+		</where>
+		order by dict_type_code 
+	</select>
+
+	<select id="findById" parameterType="Integer"
+		resultType="com.qianli.pojo.BaseDict">
+		select *
+		from base_dict
+		where bid = #{v}
+	</select>
+
+
+	<insert id="addItem" parameterType="com.qianli.pojo.BaseDict">
+		insert into base_dict
+		(dict_type_code,dict_type_name,dict_item_name,status)
+		values
+		(#{dict_type_code},#{dict_type_name},#{dict_item_name},#{status})
+	</insert>
+
+	<update id="updateItem" parameterType="com.qianli.pojo.BaseDict">
+		update base_dict
+		set dict_type_code =#{dict_type_code},
+		dict_type_name=#{dict_type_name},
+		dict_item_name= #{dict_item_name}
+		where bid = #{bid}
+
+
+	</update>
+
+	<update id="updatestatus"
+		parameterType="com.qianli.pojo.BaseDict">
+		update base_dict
+		set status =#{status}
+		where bid = #{bid}
+
+	</update>
+
+</mapper>

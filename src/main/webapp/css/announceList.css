@@ -1,0 +1,74 @@
+.announce-con {
+    width: 800px;
+    border: 1px solid black;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+.announce-list,
+.announce {
+    margin: 20px 0;
+    padding: 20px 20px;
+}
+
+.announce {
+    border: 1px solid black;
+}
+
+.announce-info {
+    text-align: left;
+}
+
+.announce-content {
+    background-color: #d1d1d1;
+    height: 140px;
+}
+
+.pager-con {
+    text-align: center;
+}
+
+.pager {
+    display: inline-block;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.pager li {
+    display: block;
+    /*inline-block会造成白边*/
+    float: left;
+}
+
+.pager a {
+    float: left;
+    border-right: 1px solid #dddddd;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    color: #858585;
+}
+
+.pager li:last-child>a {
+    border: none;
+}
+
+.pager a:hover,
+.pager .active a {
+    color: #333;
+    background-color: #eee;
+}
+
+.pager .first>a,
+.pager .last>a {
+    width: 52px;
+}
+
+.pager .prev>a,
+.pager .next>a {
+    width: 66px;
+}

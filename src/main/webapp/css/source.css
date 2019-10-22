@@ -1,0 +1,120 @@
+.filter-bar {
+	height: 26px;
+	background-color: #fafafa;
+	margin-bottom: 20px;
+	border: 1px solid #ededed;
+	padding: 6px 20px;
+}
+
+.filter-bar::after {
+	content: "";
+	display: table;
+}
+
+.filter-item {
+	float: left;
+}
+
+.filter-item input, .filter-item select {
+	color: #777;
+	width: 120px;
+	margin-right: 10px;
+	padding-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 2px;
+	border: 1px solid #ededed;
+	outline: none;
+}
+
+.filter-btn {
+	float: left;
+	width: 34px;
+	height: 28px;
+	border-radius: 2px;
+	background: #5991d4;
+	color: #fff;
+	line-height: 28px;
+	text-align: center;
+	box-sizing: content-box;
+	border: none;
+}
+
+.new-post-btn {
+	float: right;
+	width: 70px;
+	height: 28px;
+	border-radius: 2px;
+	background: #5991d4;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	line-height: 28px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.new-post-btn:hover {
+	color: #fff;
+}
+
+.mr0 {
+	margin-right: 0;
+}
+
+.main {
+	width: 800px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.work-item {
+	float: left;
+	height: 150px;
+	margin-right: 26px;
+	margin-bottom: 40px;
+	border-radius: 6px;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: rgba(7, 17, 27, 0.1) 0px 4px 8px 0px;
+	transition: 0.3s all linear;
+}
+
+.work-item:hover {
+	box-shadow: rgba(7, 17, 27, 0.2) 0px 6px 18px 0px;
+}
+
+.work-item:nth-child(4n) {
+	margin-right: 0px;
+}
+
+.work-pic a {
+	width: 180px;
+	height: 120px;
+	display: block;
+}
+
+.work-pic img {
+	width: 100%;
+	height: 100%;
+}
+
+.work-label {
+	color: #71777c;
+	padding: 0 16px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.work::after {
+	content: ".";
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+}

@@ -1,0 +1,76 @@
+.msg-list li {
+	min-height: 70px;
+	line-height: 70px;
+	border: 1px solid #ededed;
+	margin-bottom: 20px;
+	background-color: #fcfcfc;
+	cursor: pointer;
+	transition: 0.3s all linear;
+	font-size: 12px;
+	padding: 0 18px;
+}
+
+.msg-list li:hover {
+	box-shadow: rgba(7, 17, 27, 0.2) 0px 0px 6px;
+}
+
+.msg-list-basic {
+	overflow: hidden;
+}
+
+.msg-list .msg-list-left, .msg-list-left div {
+	float: left;
+}
+
+.msg-list-right, .msg-list-right div {
+	float: right;
+}
+
+.msg-list .status {
+	margin: 23px 0;
+	width: 80px;
+	height: 24px;
+	border-radius: 20px;
+	color: #fff;
+	line-height: 24px;
+	text-align: center;
+	font-size: 12px;
+	border: 1px solid #5991d4;
+	background: #fff;
+	color: #5991d4;
+}
+
+.msg-list .title {
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
+	margin: 0 20px;
+	max-width: 280px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.msg-list .date {
+	color: #aaa;
+	margin-right: 10px;
+}
+
+.msg-list .author {
+	color: #aaa;
+}
+
+.msg-list .action {
+	color: #5991d4;
+}
+
+.msg-list .action a {
+	padding-left: 4px;
+}
+
+.msg-list-content{
+	text-align:left;
+	line-height:initial;
+	padding-bottom:20px;
+	margin-left:102px;
+}

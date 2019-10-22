@@ -1,0 +1,19 @@
+.invalid-msg {
+    width: 800px;
+    height: 360px;
+    border: 1px solid black;
+    margin: 40px auto;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+.invalid-msg h1 {
+    height: 200px;
+    line-height: 200px;
+    color: red;
+}
+
+.invalid-msg a {
+    border-bottom: 1px solid #000;
+}

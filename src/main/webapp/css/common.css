@@ -1,0 +1,122 @@
+.wrapper {
+    width: 100%;
+    min-width: 1200px;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    overflow: hidden;
+}
+
+a {
+    display: inline-block;
+    height: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
+.wrap {
+    margin: 0 auto;
+    width: 1150px;
+    height: inherit;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 663311 */
+    src: url('http://at.alicdn.com/t/font_663311_8mmk143riub.eot');
+    src: url('http://at.alicdn.com/t/font_663311_8mmk143riub.eot?#iefix') format('embedded-opentype'), url('http://at.alicdn.com/t/font_663311_8mmk143riub.woff') format('woff'), url('http://at.alicdn.com/t/font_663311_8mmk143riub.ttf') format('truetype'), url('http://at.alicdn.com/t/font_663311_8mmk143riub.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #000000;
+}
+
+.header .iconfont {
+    font-size: 2em;
+    color: #FFFFFF;
+}
+
+.navbar {
+    width: 1200px;
+    height: 90px;
+    line-height: 90px;
+    background-color: rgb(183, 222, 227);
+}
+
+.navbar .iconfont {
+    font-size: 2em;
+}
+
+.navbar span.index {
+    font-size: 3em;
+    font-family: "方正舒体";
+    color: rgb(12, 147, 241);
+}
+
+.search {
+    float: right;
+    margin-left: 20px;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    width: 545px;
+    height: inherit;
+    float: right;
+}
+
+.navbar ul li {
+    float: right;
+    color: #000000;
+    height: inherit;
+    line-height: inherit;
+    list-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar ul li a {
+    font-family: "微软雅黑";
+    color: #000000;
+    font-size: 1.2em;
+    font-weight: 340;
+}
+
+.navbar ul li a.active {
+    font-size: 1.7em;
+    font-weight: 500;
+}
+
+
+.desc {
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: "微软雅黑";
+    width: 260px;
+    height: inherit;
+    text-align: center;
+    margin-left: 40px;
+}
+
+.desc h2 {
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.desc span {
+    font-weight: 300;
+    font-size: 16px;
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.SourceMapper">
+	<insert id="save" parameterType="com.qianli.pojo.Source">
+	    insert into source
+	    (uid,sname,info,slink,bid,status,click,create_time,videoImg)
+	    values
+	    (#{uid.uid},#{sname},#{info},#{slink},#{bid.bid},#{status},#{click},#{create_time},#{videoImg})
+	</insert>
+	<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+	<resultMap type="com.qianli.pojo.Source" id="SourceMap">
+	    <result property="sid" column="sid"/>
+	    <result property="sname" column="sname"/>
+	    <result property="slink" column="slink"/>
+	    <result property="info" column="info"/>
+	    <result property="status" column="status"/>
+	    <result property="click" column="click"/>
+	    <result property="create_time" column="create_time"/>
+	    <result property="videoImg" column="videoImg"/>
+
+        <association column="bid" property="bid"
+			javaType="com.qianli.pojo.BaseDict">
+			<result property="bid" column="bid" />
+            <result property="dict_type_code" column="dict_type_code" />
+            <result property="dict_type_name" column="dict_type_name" />
+			<result property="dict_item_name" column="dict_item_name" />
+			<result property="status" column="status" />
+        </association>	
+        
+        <association column="uid" property="uid"
+			javaType="com.qianli.pojo.Users">
+			<result property="uid" column="uid" />
+			<result property="username" column="username" /> 
+		</association>    
+		<!-- 一对多 -->
+		<collection property="commentList"
+			ofType="com.qianli.pojo.Comment">
+			<id column="cid" property="cid" />
+			<result column="ccontent" property="ccontent" />
+			<result column="ccreate_time" property="ccreate_time" />
+		</collection>
+	</resultMap>
+	<select id="findAll" resultMap="SourceMap" parameterType="com.qianli.pojo.Source">
+	    select s.sid,s.sname,s.info,s.slink,s.status,s.click,s.create_time,s.videoImg,b.bid,b.dict_type_code,b.dict_type_name,b.dict_item_name,u.uid,u.username
+		from
+		source s , tb_user u ,base_dict b
+		<where>
+	    	s.uid=u.uid and s.bid=b.bid
+		    <if test="sname !=null and sname !='' ">
+		        and s.sname like "%"#{sname}"%"
+		    </if>
+		    <if test="bid !=null  ">
+		        and s.bid = #{bid.bid}
+		    </if>
+		    <if test="uid !=null ">
+		        and u.username = #{uid.username}
+		    </if>
+		</where>
+		order By   create_time DESC
+	</select>
+	
+	
+	<select id="getHotSource"  resultMap="SourceMap"  >
+	    select s.sid,s.sname,s.info,s.slink,s.status,s.click,
+	    s.create_time,s.videoImg,b.bid,b.dict_type_code,
+	    b.dict_type_name,b.dict_item_name,u.uid,u.username
+		from
+		source s , tb_user u ,base_dict b
+	where
+	    	s.uid=u.uid and s.bid=b.bid
+
+		order  by  s.click desc
+	</select>
+	
+	<!-- 通过ID查询一个用户 -->
+	<select id="getSourceById" parameterType="Integer" resultMap="SourceMap">
+		  select s.sid,s.sname,s.info,s.slink,s.status,s.click,
+	    s.create_time,s.videoImg,b.bid,b.dict_type_code,
+	    b.dict_type_name,b.dict_item_name,u.uid,u.username
+		from
+		source s , tb_user u ,base_dict b
+		
+		where s.bid=b.bid  and sid = #{v} 
+		order By   create_time DESC
+	</select>
+	
+	<!-- 删除 -->
+	<delete id="delete" parameterType="Integer">
+		delete from source
+		where sid =
+		#{v}
+	</delete>
+	
+	<!-- 更新权限 -->
+	<update id="updateStatus" parameterType="com.qianli.pojo.Source">
+		update source
+		set status =
+		#{status}
+		where sid = #{sid}
+	</update>
+	
+</mapper>

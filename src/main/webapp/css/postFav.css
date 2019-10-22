@@ -1,0 +1,125 @@
+.user-con {
+    width: 800px;
+    height: 560px;
+    border: 1px solid black;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+.user-navbar {
+    float: left;
+    width: 200px;
+    border: 1px solid #000;
+}
+
+.user-navbar li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #000;
+}
+
+.post-record {
+    margin-left: 220px;
+}
+
+.list-title {
+    height: 20px;
+    line-height: 20px;
+    background-color: gray;
+    color: white;
+}
+
+.post-list {
+    border: 1px solid gray;
+    padding: 20px 10px;
+}
+
+.post-list ul {
+    margin-bottom: 20px;
+}
+
+.post-item {
+    border: 1px solid black;
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.post-item>div {
+    float: left;
+    height: 100%;
+}
+
+.post-item .title {
+    width: 300px;
+    text-align: left;
+}
+
+.post-item .date {
+    width: 80px;
+    font-size: 14px;
+    color: gray;
+}
+
+.post-item .catego {
+    width: 60px;
+    font-size: 14px;
+    color: gray;
+}
+
+.post-item .author {
+    float: right;
+    font-size: 14px;
+    color: gray;
+}
+
+.pager-con {
+    text-align: center;
+}
+
+.pager {
+    display: inline-block;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.pager li {
+    display: block;
+    /*inline-block会造成白边*/
+    float: left;
+}
+
+.pager a {
+    float: left;
+    border-right: 1px solid #dddddd;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    color: #858585;
+}
+
+.pager li:last-child>a {
+    border: none;
+}
+
+.pager a:hover,
+.pager .active a {
+    color: #333;
+    background-color: #eee;
+}
+
+.pager .first>a,
+.pager .last>a {
+    width: 52px;
+}
+
+.pager .prev>a,
+.pager .next>a {
+    width: 66px;
+}

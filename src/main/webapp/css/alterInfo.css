@@ -1,0 +1,52 @@
+.item {
+	padding: 20px 0;
+	border-top: 1px solid #f1f1f1;
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.item div {
+	float: left;
+}
+
+.item .title {
+	color: #333;
+	width: 160px;
+}
+
+.item .avater {
+	width: 60px;
+	height: 60px;
+}
+
+.item .item-content {
+	color: #71777c;
+}
+
+.item input[type=text] {
+	color: #71777c;
+	letter-spacing:1px;
+	font-size:14px;
+	background-color:#fff;
+	width: 400px;
+	display: block;
+	padding-left: 10px;
+	height: 38px;
+	line-height: 38px\9;
+	border: 1px solid #e6e6e6;s
+	border-radius: 2px;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+.item .submit {
+	width: 70px;
+	height: 28px;
+	border-radius: 2px;
+	background: #5991d4;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	line-height: 28px;
+	text-align: center;
+}

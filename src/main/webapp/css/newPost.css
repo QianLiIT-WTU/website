@@ -1,0 +1,65 @@
+.post-con {
+	width: 800px;
+	margin: 20px auto;
+	border: 1px solid #ededed;
+	padding: 6px 20px;
+	font-size: 12px;
+	background-color: #fafafa;
+}
+
+.post-con h1 {
+	font-size: 20px;
+	text-align: center;
+	margin: 20px 0;
+	color: #333;
+}
+
+.post-item {
+	margin: 10px 0;
+	overflow: hidden;
+}
+
+.post-item>div {
+	float: left;
+}
+
+.post-item .title {
+	width: 80px;
+	text-align: right;
+	margin-right: 20px;
+	line-height: 34px;
+}
+
+.post-item .content {
+	width: 640px;
+}
+
+.post-item select, .post-item input, .post-item textarea {
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 2px;
+	border: 1px solid #ededed;
+	outline: none;
+	background: #fff;
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+
+.post-item textarea {
+	height: 400px;
+}
+
+.post-item .submit {
+	display: block;
+	width: 70px;
+	height: 28px;
+	border-radius: 2px;
+	background: #5991d4;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	line-height: 28px;
+	text-align: center;
+	margin: 10px auto;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.FlagMapper">
+
+
+
+	<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+	<resultMap type="com.qianli.pojo.Flag" id="FlagMap">
+		<result property="fid" column="fid" />
+		<result property="readtime" column="readtime" />
+		<result property="status" column="status" />
+
+
+		<association column="mid" property="mid"
+			javaType="com.qianli.pojo.Message">
+			<result property="mid" column="mid" />
+			<result property="title" column="title" />
+			<result property="content" column="content" />
+			<result property="create_time" column="create_time" />
+		</association>
+		<association column="uid" property="uid" javaType="com.qianli.pojo.Users">
+			<result property="uid" column="uid" />
+			<result property="username" column="username" />
+
+		</association>
+
+	</resultMap>
+
+
+	<select id="AnnunceList" parameterType="Integer" resultMap="FlagMap">
+		select * from flag f,tb_user u,message m where f.mid=m.mid and
+		f.uid=u.uid and u.uid=#{v} ORDER BY m.create_time  desc
+
+	</select>
+
+	<delete id="delete" parameterType="Integer">
+		delete from flag where
+		fid=#{fid}
+
+
+	</delete>
+
+
+	<select id="getById" parameterType="Integer" resultType="com.qianli.pojo.Flag">
+
+		select *
+		from flag where fid=#{v}
+
+	</select>
+
+
+	<update id="updateStatus" parameterType="com.qianli.pojo.Flag">
+
+		update flag set
+		readtime= #{readtime},status=#{status}
+		where fid=#{fid}
+
+	</update>
+
+
+	<select id="findcount" parameterType="Integer" resultType="Integer">
+		select count(*) from flag where uid= #{v} and status=0
+
+	</select>
+</mapper>

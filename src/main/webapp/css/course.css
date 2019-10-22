@@ -1,0 +1,137 @@
+.video-con {
+	margin: 20px 0;
+	text-align: center;
+}
+
+video {
+	width: 720px;
+	height: 480px;
+}
+
+.main {
+	width: 1200px;
+	margin-bottom: 30px;
+}
+
+.main h3 {
+	font-weight: bold;
+}
+
+.class {
+	width: 1150px;
+}
+
+.cl-v {
+	width: 720px;
+	height: 450px;
+	float: left;
+}
+
+.acveo {
+	width: 720px;
+	height: 300px;
+}
+
+.acveo video {
+	width: 720px;
+	height: 300px;
+}
+
+.veo-info {
+	padding-top: 20px;
+	padding-bottom: 15px;
+	width: 720px;
+	height: 115px;
+	text-indent: 1.5em;
+	background-color: rgb(245, 245, 245);
+}
+
+.veo-info span {
+	font-family: "微软雅黑";
+	color: grey;
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+
+.line-1, .line-2, .line-3 {
+	width: inherit;
+	line-height: 35px;
+}
+
+.line-1 .category {
+	color: rgb(31, 102, 145);
+	margin-right: 290px;
+}
+
+.line-2 span:first-child {
+	margin-right: 200px;
+}
+
+.line-3 .iconfont {
+	margin-right: 5px;
+	color: gray;
+	font-size: 26px;
+}
+
+.link {
+	width: 404px;
+	height: 450px;
+	float: right;
+}
+
+.link h3 {
+	margin: 0;
+	height: 45px;
+	line-height: 45px;
+	font-family: "微软雅黑";
+	font-weight: 400;
+	color: #1c4271;
+	font-size: 21px;
+}
+
+.link-v {
+	width: 404px;
+	height: 53px;
+	margin-bottom: 17px;
+	background-color: rgb(245, 245, 245);
+}
+
+.link-v:last-child {
+	margin-bottom: 0;
+}
+
+.tutor {
+	width: 1150px;
+}
+
+.tit {
+	display: inline-block;
+	color: #1c4271;
+	font-family: "微软雅黑";
+	font-size: 1.8em;
+	height: 45px;
+	line-height: 45px;
+}
+
+.tutor-info {
+	text-indent: 0.5em;
+	border-left: 2px solid #1c4271;
+}
+
+.tutor-info span {
+	display: block;
+	font-size: 17px;
+	line-height: 30px;
+	color: #1c4271;
+}
+
+.tutor-info span a {
+	color: #1c4271;
+}
+
+.tutor-con {
+	width: 1150px;
+	height: 300px;
+	border: 1px solid gray;
+	margin-top: 5px;
+}

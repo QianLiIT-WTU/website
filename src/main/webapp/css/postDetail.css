@@ -1,0 +1,83 @@
+.post-detail-con {
+	width: 800px;
+	min-height: 400px;
+	box-shadow: #d8dde1 0px 0px 8px;
+	border-radius: 4px;
+	margin: 20px auto;
+	font-size: 16px;
+	padding: 20px;
+	border-top: 2px solid #5991d4;
+}
+
+.post-detail .title {
+	text-align: center;
+	margin: 8px 0;
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 1.5;
+	margin: 8px 0;
+}
+
+.author-info-block {
+	text-align: center;
+	font-size: 14px;
+}
+
+.author-info-block span {
+	color: #aaa;
+	margin-right: 10px;
+}
+
+.content {
+	width: 100%;
+	padding: 40px;
+	min-height: 100px;
+	box-sizing: border-box;
+	color: #333;
+	text-indent: 28px;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.rely-con, .rely {
+	padding: 20px 20px;
+}
+
+.rely {
+	border-top: 1px solid #f1f1f1;
+}
+
+.rely .new-rely {
+	width: 100%;
+	height: 100px;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.save-comment {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.save-comment button {
+	width: 70px;
+	height: 28px;
+	border-radius: 2px;
+	background: #5991d4;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	line-height: 28px;
+	text-align: center;
+}
+
+.rely-info {
+	text-align: left;
+	color: #71777c;
+	font-size: 12px;
+}
+
+.rely-content {
+	min-height: 40px;
+	margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.ImageMapper">
+	<select id="findAll" resultType="com.qianli.pojo.Image">
+		select * from image   	order By   create_time DESC
+	</select>
+	
+	<select id="getById" parameterType="Integer" resultType="com.qianli.pojo.Image">
+	    select * from image where iid = #{v}  
+	</select>
+	
+	<insert id="save" parameterType="com.qianli.pojo.Image">
+	    insert into image
+	    (title,ilink,create_time,status)
+	    values
+	    (#{title},#{ilink},#{create_time},#{status})
+	</insert>
+	
+	<update id="update" parameterType="com.qianli.pojo.Image">
+	    update image
+	    set title = #{title},ilink = #{ilink},create_time = #{create_time},status = #{status}
+	    where iid = #{iid}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from image
+		where iid = #{v}
+	</delete>
+</mapper>

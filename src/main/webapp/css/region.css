@@ -1,0 +1,100 @@
+.feature-con {
+	width: 100%;
+	height: /*812px;*/672px;
+	background: url(../img/intr.jpg) no-repeat;
+	background-size: cover;
+}
+
+.title {
+	width: 100%;
+	height: /*212px;*/180px;
+	line-height: /*260px;*/240px;
+	text-align: center;
+	color: #ffffff;
+	font-size: /*94px;*/60px;
+	font-family: "FangSong";
+}
+
+.line {
+	width: 100%;
+}
+
+.feature {
+	margin-top: /*194px;*/140px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+
+.feature-item {
+	width: /*242px;*/200px;
+	height: 302px;
+	display: inline-block;
+	margin-right: /*10vw*/12vw;
+}
+
+.feature-item:last-child {
+	margin-right: 0;
+}
+
+.feature-pic {
+	width: /*234px;*/200px;
+	height:/* 234px;*/200px;
+	border-radius: 234px;
+	background: #fff;
+}
+
+.feature-item h2 {
+	font-size: /*52px;*/36px;
+	font-family: "FangSong";
+	padding-top: 14px;
+}
+
+.group-con {
+	width: 100%;
+	height:/* 530px;*/480px;
+	margin-top: 66px;
+	text-align: center;
+}
+
+.group-item {
+	width: /*200px;*/180px;
+	padding: /*0 24px;*/0 2.8vw;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.group-icon {
+	width: /*200px;*/180px;
+	height: /*200px;*/180px;
+	border-radius: /*200px;*/90px;
+	background-color: #eef0f2;
+	border: 1px solid #c0c1c4;
+	margin-bottom: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.java-group .group-icon {
+	background-image: url("../img/java-group.png");
+}
+
+.web-group .group-icon {
+	background-image: url("../img/web-group.png");
+}
+
+.design-group .group-icon {
+	background-image: url("../img/design-group.png");
+}
+
+.wechat-group .group-icon {
+	background-image: url("../img/wechat-group.png");
+}
+
+.group-item p {
+	font-size: /*24px;*/20px;
+	font-family: "FangSong";
+	color: #949596;
+	margin-top: 16px;
+	text-align: left;
+}

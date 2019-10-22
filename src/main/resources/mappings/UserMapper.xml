@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.UserMapper">
+
+
+	<select id="findAll" resultMap="UserMap">
+		select *
+		from tb_user
+	</select>
+	<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+	<resultMap type="com.qianli.pojo.Users" id="UserMap">
+		<result property="uid" column="uid" />
+		<result property="username" column="username" />
+		<result property="mail" column="mail" />
+		<result property="phone" column="phone" />
+		<result property="root" column="root" />
+		<result property="year" column="year" />
+		<result property="sex" column="sex" />
+		<result property="password" column="password" />
+		<result property="photoaddress" column="photoaddress" />
+		<association column="bid" property="bid"
+			javaType="com.qianli.pojo.BaseDict">
+			<result property="bid" column="bid" />
+			<result property="dict_type_code" column="dict_type_code" />
+			<result property="dict_item_name" column="dict_item_name" />
+		</association>
+	</resultMap>
+
+
+
+	<select id="findByUser" resultMap="UserMap"
+		parameterType="com.qianli.pojo.Users">
+		select
+		u.uid,u.password,u.username,u.photoaddress,u.mail,u.root,u.sex,u.year,u.phone,
+		b.bid,b.dict_type_code,b.dict_item_name
+		from
+		tb_user u
+		left join base_dict b 
+on   u.bid=b.bid
+		<where>
+                
+			<if test=" root != 0  ">
+				and root= #{root}
+			</if>
+			<if test=" username != null and username !=''">
+				and u.username like "%"#{username}"%"
+			</if>
+			<if test="year != null and year !=''">
+				and u.year =#{year}
+			</if>
+			<if test="bid !=null  ">
+				and u.bid = #{bid.bid}
+			</if>
+
+		</where>
+	</select>
+
+
+
+	<!-- 通过ID查询一个用户 -->
+	<select id="getById" parameterType="Integer"  resultMap="UserMap">
+		select 
+		u.uid,u.password,u.username,u.photoaddress,u.mail,u.root,u.sex,u.year,u.phone,
+		b.bid,b.dict_type_code,b.dict_item_name
+		from tb_user u
+		left join base_dict b
+		on u.bid=b.bid where u.uid = #{uid}
+	</select>
+
+	<!-- 通过用户名查询一个用户 -->
+
+	<select id="getByUsername" parameterType="String"
+		resultType="com.qianli.pojo.Users">
+		select * from tb_user where username = #{v}
+	</select>
+
+	<select id="getByMail" parameterType="String"
+		resultType="com.qianli.pojo.Users">
+		select
+		* from tb_user where mail = #{v}
+	</select>
+	<select id="findByCode" parameterType="String"
+		resultType="com.qianli.pojo.Users">
+		select * from tb_user where code = #{v}
+	</select>
+
+	<!-- 添加用户 -->
+	<insert id="save" parameterType="com.qianli.pojo.Users">
+		<!-- <selectKey keyProperty="id" resultType="Integer" order="AFTER"> -->
+		<!-- select LAST_INSERT_ID() -->
+		<!-- </selectKey> -->
+		insert into tb_user
+		(username,password,mail,code,year,sex,question,answer,root,bid,phone)
+		values
+		(#{username},#{password},#{mail},#{code},#{year},#{sex},#{question},#{answer},#{root},#{bid.bid},#{phone})
+	</insert>
+
+	<!-- 更新 -->
+	<update id="updateRoot" parameterType="com.qianli.pojo.Users">
+		update tb_user
+		set root =
+		#{root}
+		where uid = #{uid}
+	</update>
+	<!-- 更新 -->
+	<update id="updateInfo" parameterType="com.qianli.pojo.Users">
+		update tb_user
+		set phone =
+		#{phone} , photoaddress = #{photoaddress}
+		where uid = #{uid}
+	</update>
+
+	<update id="updatePsw" parameterType="com.qianli.pojo.Users">
+		update tb_user
+		set password
+		= #{password}
+		where uid = #{uid}
+	</update>
+
+
+	<!-- 删除 -->
+	<delete id="delete" parameterType="Integer">
+		delete from tb_user
+		where uid =
+		#{v}
+	</delete>
+
+
+
+
+
+
+</mapper>

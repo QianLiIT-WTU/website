@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.MessageMapper">
+
+	<insert id="save" parameterType="com.qianli.pojo.Message">
+		<selectKey keyProperty="mid" resultType="Integer" order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into message (title,content,create_time,status,touser)
+		values(#{title},#{content},#{create_time},#{status},#{touser})
+
+	</insert>
+
+	<insert id="relase" parameterType="com.qianli.pojo.QueryVo">
+
+		insert into flag
+		(mid, uid,status)
+		values
+		<foreach collection="userlist" item="user" index="index"
+			separator=",">
+			(
+			#{mid}, #{user.uid},0
+			)
+		</foreach>
+	</insert>
+	
+	
+	
+	<insert id="relaseUser" parameterType="Integer">
+
+		insert into flag
+		( uid,status)
+		values( #{v},0 )
+
+	</insert>
+	
+
+	<select id="find" parameterType="com.qianli.pojo.Message"
+		resultType="com.qianli.pojo.Message">
+
+		select * from message
+		<where>
+			status =0
+			<if test="mid !='' and mid != null ">
+				and mid=#{mid}
+			</if>
+			<if test="title !=null and title !=''">
+				and title=#{title}
+			</if>
+
+		</where>
+			order By   create_time DESC
+	</select>
+
+  <select id="getById"  parameterType="Integer" resultType="com.qianli.pojo.Message">
+    select * from message  where mid=#{v}
+  
+  </select>
+  
+  <update id="update" parameterType="com.qianli.pojo.Message">
+  
+  update message
+		set status =#{status}
+	
+		where  mid = #{mid}
+  
+  </update>
+
+
+<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+<!-- 	<resultMap type="com.qianli.pojo.Users" id="UserMap"> -->
+<!-- 		<result property="uid" column="uid" /> -->
+<!-- 		<result property="username" column="username" /> -->
+<!-- 		<result property="mail" column="mail" /> -->
+<!-- 		<result property="root" column="root" /> -->
+<!--               <result property="sex" column="sex" /> -->
+
+<!-- 		<association column="bid" property="bid" -->
+<!-- 			javaType="com.qianli.pojo.BaseDict"> -->
+			
+<!-- 			<result property="dict_type_code" column="dict_type_code" /> -->
+<!-- 			<result property="dict_item_name" column="dict_item_name" /> -->
+<!-- 		</association> -->
+<!-- 	</resultMap> -->
+
+
+<!-- <select id="findByUid"  parameterType="Integer" resultMap="UserMap"  > -->
+<!--   select * from flag where  uid=#{uid} -->
+
+<!-- </select> -->
+</mapper>

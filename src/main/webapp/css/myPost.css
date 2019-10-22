@@ -1,0 +1,102 @@
+.post-list li {
+	height: 70px;
+	line-height: 70px;
+	border: 1px solid #ededed;
+	margin-bottom: 20px;
+	background-color: #fcfcfc;
+	cursor: pointer;
+	transition: 0.3s all linear;
+	font-size: 12px;
+	padding: 0 18px;
+}
+
+.post-list li:hover {
+	box-shadow: rgba(7, 17, 27, 0.2) 0px 0px 6px;
+}
+
+.post-list .post-list-left, .post-list-left div {
+	float: left;
+}
+
+.post-list-right, .post-list-right div {
+	float: right;
+	padding-left: 4px;
+}
+
+.post-list .catego {
+	margin: 23px 0;
+	width: 80px;
+	height: 24px;
+	border-radius: 20px;
+	color: #fff;
+	line-height: 24px;
+	text-align: center;
+	font-size: 12px;
+	border: 1px solid #5991d4;
+	background: #fff;
+	color: #5991d4;
+}
+
+.post-list .title {
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
+	margin: 0 20px;
+	max-width: 280px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.post-list .date {
+	color: #aaa;
+	margin-right: 10px;
+}
+
+.post-list .author {
+	color: #aaa;
+}
+
+.post-list .click {
+	color: #5991d4;
+}
+
+.pager {
+	display: inline-block;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+}
+
+.pager li {
+	display: block;
+	/*inline-block会造成白边*/
+	float: left;
+}
+
+.pager a {
+	float: left;
+	border-right: 1px solid #dddddd;
+	width: 32px;
+	height: 32px;
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+	color: #858585;
+}
+
+.pager li:last-child>a {
+	border: none;
+}
+
+.pager a:hover, .pager .active a {
+	color: #333;
+	background-color: #eee;
+}
+
+.pager .first>a, .pager .last>a {
+	width: 52px;
+}
+
+.pager .prev>a, .pager .next>a {
+	width: 66px;
+}

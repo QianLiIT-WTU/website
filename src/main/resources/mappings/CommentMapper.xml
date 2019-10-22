@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.CommentMapper">
+
+	<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+	<resultMap type="com.qianli.pojo.Comment" id="CommentMap">
+		<result property="cid" column="cid" />
+		<result property="ccontent" column="ccontent" />
+		<result property="create_time" column="ccreate_time" />
+
+      <association column="pid" property="pid"
+			javaType="com.qianli.pojo.Post">
+			<result property="pid" column="pid" />
+			<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="create_time" column="create_time" />
+		<result property="click" column="click" />
+
+		</association>
+		<association column="uid" property="uid"
+			javaType="com.qianli.pojo.Users">
+			<result property="id" column="id" />
+			<result property="username" column="username" />
+		</association>
+		
+		<association column="ccid" property="ccid"
+			javaType="com.qianli.pojo.Comment">
+			<result property="cid" column="cid" />
+			<result property="ccontent" column="cccontent" />
+			<result property="ccreate_time" column="cccreate_time" />
+		</association>
+		<association column="sid" property="sid"
+			javaType="com.qianli.pojo.Source">
+			<result property="sid" column="sid" />
+			<result property="sname" column="sname" />
+           <result property="slink" column="slink"/>
+	    <result property="info" column="info"/>
+	    <result property="status" column="status"/>
+	    <result property="click" column="click"/>
+	    <result property="create_time" column="create_time"/>
+	    <result property="videoImg" column="videoImg"/>
+		</association>
+	</resultMap>
+
+	<insert id="saveComment" parameterType="com.qianli.pojo.Comment">
+		insert into comment (uid,pid,sid,ccontent,ccreate_time)
+		values(#{uid.uid},#{pid.pid},#{sid.sid},#{ccontent},#{ccreate_time})
+           
+	</insert>
+
+
+	<!-- //一对多关联 -->
+
+	<resultMap id="PostMap" type="com.qianli.pojo.Post">
+		<id column="pid" property="pid" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="create_time" column="create_time" />
+		<result property="click" column="click" />
+		<association column="uid" property="uid"
+			javaType="com.qianli.pojo.Users">
+			<result property="id" column="id" />
+			<result property="username" column="username" />
+		</association>
+		
+		<!-- 一对多 -->
+		<collection property="commentList"
+			ofType="com.qianli.pojo.Comment">
+			<id column="cid" property="cid" />
+			<result column="content" property="content" />
+			<result column="create_time" property="create_time" />
+		</collection>
+
+	</resultMap>
+
+	<select id="findByPid" parameterType="Integer"
+		resultMap="CommentMap">
+		 select p.pid,p.title,p.content,p.create_time,p.click,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name,
+		c.cid,c.ccontent,c.ccreate_time
+		from
+		post p , tb_user u ,base_dict b,comment c
+		where
+		p.pid=c.pid and c.uid =u.uid and c.pid = #{v}
+		order By   ccreate_time DESC
+	</select>
+
+
+	<select id="findBySid" parameterType="Integer"
+		resultMap="CommentMap">
+		 select s.sid,s.sname,s.info,s.slink,s.status,s.click,s.create_time,s.videoImg,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name,
+		c.cid,c.ccontent,c.ccreate_time
+		from
+		source s, tb_user u ,base_dict b,comment c
+		where
+		s.sid=c.sid and c.uid =u.uid and c.sid = #{v}
+		order By   ccreate_time DESC
+	</select>
+</mapper>

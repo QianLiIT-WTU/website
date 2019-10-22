@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianli.mapper.PostMapper">
+
+
+	<!-- resultMap:映射实体类和字段之间的一一对应的关系 -->
+	<resultMap type="com.qianli.pojo.Post" id="PostMap">
+		<result property="pid" column="pid" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="status" column="status" />
+		<result property="create_time" column="create_time" />
+		<result property="click" column="click" />
+		<association column="uid" property="uid"
+			javaType="com.qianli.pojo.Users">
+			<result property="uid" column="uid" />
+			<result property="username" column="username" />
+		</association>
+		<association column="bid" property="bid"
+			javaType="com.qianli.pojo.BaseDict">
+			<result property="bid" column="bid" />
+			<result property="dict_type_code" column="dict_type_code" />
+			<result property="dict_item_name" column="dict_item_name" />
+		</association>
+		<!-- 一对多 -->
+		<collection property="commentList"
+			ofType="com.qianli.pojo.Comment">
+			<id column="cid" property="cid" />
+			<result column="ccontent" property="ccontent" />
+			<result column="ccreate_time" property="ccreate_time" />
+		</collection>
+	
+	</resultMap>
+
+	<select id="findByFPost" parameterType="com.qianli.pojo.Post"
+		resultMap="PostMap">
+		select p.pid,p.title,p.content,p.create_time,p.click,p.status,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name
+	
+		from
+		post p , tb_user u ,base_dict   b
+		<where>
+			p.uid=u.uid and p.bid=b.bid and p.status=0
+			<if test="title !=null and title!='' ">
+				and p.title=#{title}
+			</if>
+			<if test="uid != null   ">
+				and p.uid =#{uid.uid}
+			</if>
+			<if test="bid  !=null ">
+				and p.bid =#{bid.bid}
+			</if>
+		</where>
+  order By   create_time DESC
+	</select>
+
+	<select id="findByTPost" parameterType="com.qianli.pojo.Post"
+		resultMap="PostMap">
+		 select p.pid,p.title,p.content,p.create_time,p.click,p.status,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name
+		
+		from
+		post p , tb_user u ,base_dict b  
+		<where>
+			p.uid=u.uid and p.bid=b.bid  and  p.status=1
+			<if test="title != null and title!= '' ">
+				and title=#{title}
+			</if>
+			<if test="uid  != null  ">
+				and p.uid =#{uid.uid}
+			</if>
+			<if test="bid  !=null ">
+				and p.bid =#{bid.bid}
+			</if>
+		</where>
+		order By   create_time DESC
+	</select>
+	
+	
+	<select id="findHotPost" parameterType="com.qianli.pojo.Post"
+		resultMap="PostMap">
+		 select p.pid,p.title,p.content,p.create_time,p.click,p.status,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name
+		
+		from
+		post p , tb_user u ,base_dict b  
+		<where>
+			p.uid=u.uid and p.bid=b.bid  and  p.status=1
+			<if test="title != null and title!= '' ">
+				and title=#{title}
+			</if>
+			<if test="uid  != null  ">
+				and p.uid =#{uid.uid}
+			</if>
+			<if test="bid  !=null ">
+				and p.bid =#{bid.bid}
+			</if>
+		</where>
+		order By   click  DESC
+	</select>
+	
+
+	<select id="findMyPost" parameterType="Integer" resultMap="PostMap">
+		 select p.pid,p.title,p.content,p.create_time,p.click,p.status,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name
+		from
+		post p , tb_user u ,base_dict b
+		 where
+		b.bid=p.bid and u.uid =p.uid and u.uid = #{v}
+		order By   create_time DESC
+	</select>
+
+
+	<select id="findByPid" resultMap="PostMap"
+		parameterType="Integer">
+
+		 select p.pid,p.title,p.content,p.create_time,p.click,p.status,
+		u.uid,u.username,
+		b.bid,b.dict_type_code,b.dict_item_name 
+		
+		from
+		post p , tb_user u ,base_dict b
+
+		where   p.uid=u.uid and p.bid=b.bid  and  p.pid= #{pid}
+
+	</select>
+
+	<insert id="save" parameterType="com.qianli.pojo.Post">
+		insert into post
+		(uid,title,content,bid,status,click,create_time)
+		values(#{uid.uid},#{title},#{content},#{bid.bid},#{status},#{click},#{create_time})
+	</insert>
+
+	<delete id="delete" parameterType="Integer">
+		delete from post
+
+		where pid=
+		#{pid}
+
+	</delete>
+
+	<update id="Update" parameterType="com.qianli.pojo.Post">
+		update post
+		set title=#{title},content=#{content},status=#{status},
+		bid=#{bid.bid},create_time=#{create_time}
+
+
+		where pid= #{pid}
+
+	</update>
+	
+		<update id="UpdateClick"   parameterType="com.qianli.pojo.Post">
+		update post
+		set  click=#{click}
+
+
+		where pid= #{pid}
+
+	</update>
+
+
+	
+	
+	
+
+</mapper>

@@ -1,0 +1,21 @@
+.user-content form{
+	width:400px;
+	margin:0 auto;
+}
+
+.user-content input {
+	color: #71777c;
+	letter-spacing:1px;
+	font-size:14px;
+	background-color:#fff;
+	width: 400px;
+	display: block;
+	padding-left: 10px;
+	height: 38px;
+	line-height: 38px\9;
+	border: 1px solid #e6e6e6;
+	border-radius: 2px;
+	outline: 0;
+	box-sizing: border-box;
+	margin-bottom:20px;
+}

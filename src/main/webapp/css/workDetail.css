@@ -1,0 +1,32 @@
+.work-detail-con {
+    width: 800px;
+    border: 1px solid black;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+}
+
+.work-detail-con .work {
+    height: 500px;
+    border: 1px solid #000;
+}
+
+.rely-con,
+.rely {
+    margin: 20px 0;
+    padding: 20px 20px;
+}
+
+.rely {
+    border: 1px solid black;
+}
+
+.rely-info {
+    text-align: left;
+}
+
+.rely-content {
+    background-color: #d1d1d1;
+    height: 140px;
+}
